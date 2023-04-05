@@ -8,9 +8,8 @@
                  <div>   
                     <a href="/animals/new"><button>Create A New Animal</button></a>
                     <% for (animals of animals) { %>
-                        <!-- create an article -->
                         <article>
-                            <a href="/fruits/<%= fruit._id %>">
+                            <a href="/animal/<%= animal._id %>">
                                 <h2>
                                     <%= animal.name %> - <%= animal.extinct ? "Extinct" : "Not Extinct" %>
                                 </h2>
