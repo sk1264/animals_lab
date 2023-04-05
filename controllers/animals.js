@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const startAnimals = require('../db/animalsSeedData.js')
-const Animals = require('../models/animals.js')
+const Animals = require('../models/animal.js')
 
 // Post
 router.post('/', async (req, res) => {

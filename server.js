@@ -10,6 +10,19 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
   });
 
+app.use(morgan("tiny")) 
+app.use(methodOverride("_method")) 
+app.use(express.urlencoded({extended: true})) 
+app.use(express.static("public")) 
+
+app.get('/', (req, res) => {
+    res.send('default route')
+})
+
+const animalsController = require('./controllers/animals');
+app.use('/animals', animalsController);
+
+
 app.listen(process.env.PORT, () =>
 	console.log(`express is listening on port: ${process.env.PORT}`)
 );

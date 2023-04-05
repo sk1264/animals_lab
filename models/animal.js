@@ -7,6 +7,6 @@ const animalsSchema = new mongoose.Schema({
     lifeExpectancy: Number,
 }, {timestamps: true})
 
-const Animals = mongoose.model('Animal', animalsSchema)
+const Animal = mongoose.model('Animal', animalsSchema)
 
 module.exports = Animal
