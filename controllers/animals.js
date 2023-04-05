@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const startAnimals = require('../db/animalsSeedData.js')
-const Animals = require('../models/animal.js')
+const Animal = require('../models/animal.js')
 
 // Post
 router.post('/', async (req, res) => {
 	console.log(req.body)
 	req.body.extinct = req.body.extinct === 'on' ? true : false;
-	const animal = await Animals.create(req.body);
+	const animal = await Animal.create(req.body);
 	res.redirect('/animals');
 });
 
@@ -22,8 +22,19 @@ router.get('/:id/edit', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    const animals = await Animals.find({});
+    const animals = await Animal.find({});
     res.render("animals/index.ejs", {animals});
+});
+
+router.get('/seed', async (req, res) => {
+	await Animal.deleteMany({});
+	await Animal.create(startAnimals);
+	res.redirect('/animals');
+});
+
+router.get('/:id', async (req, res) => {
+	const animal = await Animal.findById(req.params.id);
+	res.render("animals/show.ejs", {animal})
 });
 
 // Delete

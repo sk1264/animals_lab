@@ -7,7 +7,7 @@ const app = express();
 
 app.get('/', (req, res) => {
     console.log('default route');
-    res.send('Hello World!');
+    res.send('default route');
   });
 
 app.use(morgan("tiny")) 
