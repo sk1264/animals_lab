@@ -6,10 +6,10 @@ const app = express();
 
 
 app.get('/', (req, res) => {
-    console.log('Oh hey! I got a request. Let me respond with something');
+    console.log('default route');
     res.send('Hello World!');
   });
 
-app.listen(3000, () => {
-    console.log('Express is listening for requests from the browser');
-  });
+app.listen(process.env.PORT, () =>
+	console.log(`express is listening on port: ${process.env.PORT}`)
+);
