@@ -39,7 +39,7 @@ router.get('/:id', async (req, res) => {
 
 // Delete
 router.delete('/:id', async (req, res) => {
-	const animal = await Animals.findByIdAndDelete(req.params.id);
+	const animal = await Animal.findByIdAndDelete(req.params.id);
 	res.redirect('/animals');
 });
 
@@ -47,7 +47,7 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
 	const id = req.params.id;
 	req.body.extinct = req.body.extinct === 'on' ? true : false;
-	const animal = await Animals.findByIdAndUpdate(id, req.body, {
+	const animal = await Animal.findByIdAndUpdate(id, req.body, {
 		new: true,
 	});
 	res.redirect('/animals');
