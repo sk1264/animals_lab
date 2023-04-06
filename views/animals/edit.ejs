@@ -8,10 +8,10 @@
                 <div>
                     <form action="/animals/<%= animal._id %>?_method=PUT" method="post">
                         <fieldset>
-                            <legend>Edit a <%= animal.name %>
+                            <legend>Edit a <%= animal.species %>
                             </legend>
                             <label>
-                                NAME:<input type="text" name="name" value="<%= animal.name %>" placeholder="enter animal name" />
+                                NAME:<input type="text" name="name" value="<%= animal.species %>" placeholder="enter animal species" />
                             </label>
                             <label>
                                 LOCATION:<input type="text" name="location" value="<%= animal.location %>" placeholder="enter animal location" />
@@ -23,7 +23,7 @@
                                 EXTINCT:<input type="checkbox" name="extinct" <%=animal.extinct ? "checked" : "" %> />
                             </label>
                         </fieldset>
-                        <input type="submit" value="Update <%= animal.name %>" />
+                        <input type="submit" value="Update <%= animal.species %>" />
                     </form>
                 </div>
             </main>
